@@ -1,0 +1,15 @@
+@import './complementary/keyframes.css';
+@import './complementary/patterns.css';
+@import './complementary/extensions.css';
+@import './complementary/fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  scroll-behavior: smooth;
+}
