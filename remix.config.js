@@ -4,7 +4,7 @@ module.exports = {
   assetsBuildDirectory: 'build/public/assets',
   serverBuildPath: 'build/index.js',
   publicPath: '/build/',
-  devServerPort: 8002,
+  port: 8002,
   serverMinify: false,
   tailwind: true,
   serverModuleFormat: 'cjs',

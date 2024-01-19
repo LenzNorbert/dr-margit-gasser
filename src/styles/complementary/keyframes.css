@@ -1,35 +1,5 @@
-.animation-blinking {
-  animation: blink 1s step-end infinite;
-}
-
-.animation-rotating {
-  animation: rotate 20s infinite;
-}
-
 .animation-slide {
   animation: slide 40s linear infinite;
-}
-
-@keyframes blink {
-  from,
-  to {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  50% {
-    transform: translate(-50%, -50%) rotate(120deg) scale(1, 1.4);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
 }
 
 @keyframes slide {

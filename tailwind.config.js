@@ -8,13 +8,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        dark: '#111117',
-        primary: '#D00EEF',
-        secondary: '#4C6176',
+        cpBeige: '#EDE5D8',
+        cpGreen: '#5A8065',
+        cpYellow: '#D7BC8D',
+        cpRed: '#FF6250',
+        cpDark: '#2D2D2D',
+        caOrange: '#D49A82',
       },
       fontFamily: {
-        kumbhSans: ['Kumbh Sans'],
-        bebasNeue: ['Bebas Neue'],
+        qtBasker: ['QT Basker'],
+        poppins: ['Poppins'],
+        mulish: ['Mulish'],
       },
       fontSize: {
         '12xl': '12rem',

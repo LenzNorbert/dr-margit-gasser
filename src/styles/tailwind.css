@@ -1,6 +1,4 @@
 @import './complementary/keyframes.css';
-@import './complementary/patterns.css';
-@import './complementary/extensions.css';
 @import './complementary/fonts.css';
 
 @tailwind base;
