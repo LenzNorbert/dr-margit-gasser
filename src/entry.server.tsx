@@ -10,6 +10,7 @@ import isbot from 'isbot';
 
 import { i18next } from './services';
 import { fallbackLng, i18nConfig, supportedLngs, Locales } from './config/locales/i18n';
+import { ErrorInfo } from 'react';
 
 const ABORT_DELAY: number = 5_000;
 
@@ -51,7 +52,10 @@ const handleRequest = async (request: Request, status: number, headers: Headers,
           pipe(body);
         },
         onShellError: (error: unknown) => reject(error),
-        onError: (error: unknown) => process.stderr.write(String(error)),
+        onError: (error: unknown, errorInfo: ErrorInfo) => {
+          process.stderr.write(String(error));
+          return String(error);
+        },
       }
     );
 
