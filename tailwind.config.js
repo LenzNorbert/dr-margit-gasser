@@ -13,6 +13,7 @@ module.exports = {
         cpYellow: '#D7BC8D',
         cpRed: '#FF6250',
         cpDark: '#2D2D2D',
+        cpText: '#111827',
         caOrange: '#D49A82',
       },
       fontFamily: {
