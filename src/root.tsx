@@ -52,7 +52,7 @@ const Root = () => {
           content={`script-src 'nonce-${nonce}' 'unsafe-inline' https: http: 'nonce-${nonce}' 'strict-dynamic'; base-uri 'self'; object-src 'none';`}
         />
       </head>
-      <body className="bg-cpBeige">
+      <body>
         <Outlet />
         <ScrollRestoration nonce={nonce} />
         <LiveReload nonce={nonce} />

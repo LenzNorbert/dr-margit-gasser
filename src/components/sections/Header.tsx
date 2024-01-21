@@ -2,8 +2,9 @@ import { storyblokEditable } from '@storyblok/react';
 
 export const Header = ({ blok }: any) => {
   return (
-    <header {...storyblokEditable(blok)} key={blok?._uid} id="header" className="relative h-screen w-full">
-      <h1 className="font-qtBasker text-9xl">Dr. Margit Gasser</h1>
+    <header {...storyblokEditable(blok)} key={blok?._uid} id="header" className="relative h-screen w-full bg-cpBeige">
+      <h1 className="font-qtBasker text-4xl text-cpText lg:text-9xl">{blok?.title}</h1>
+      <h2>{blok?.subheading}</h2>
     </header>
   );
 };

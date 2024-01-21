@@ -1,7 +1,6 @@
 import { V2_MetaFunction } from '@remix-run/node';
 
 import { StoryblokComponent, storyblokEditable } from '@storyblok/react';
-import { Navbar } from '~/components/elements/Navbar';
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -21,7 +20,6 @@ export const meta: V2_MetaFunction = () => {
 export const Page = ({ blok }: any) => {
   return (
     <div {...storyblokEditable(blok)} key={blok._uid} className="relative h-full w-full">
-      <Navbar />
       <main role="main" className="relative flex snap-y snap-mandatory flex-col items-center justify-center">
         {blok.body?.map((nestedBlok: any) => (
           <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
