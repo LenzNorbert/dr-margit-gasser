@@ -13,18 +13,16 @@ export const MouseIndicator = () => {
     }
 
     document.body.onpointermove = ({ pageX, pageY }) =>
-      indicatorReference.current?.animate(
-        { left: `${pageX - 16}px`, top: `${pageY - 16}px` },
-        { duration: 500, fill: 'forwards' }
-      );
+      indicatorReference.current?.animate({ left: `${pageX - 16}px`, top: `${pageY - 16}px` }, { duration: 500, fill: 'forwards' });
 
     document.body.onclick = () =>
       indicatorReference.current?.animate(
         {
-          transform: ['scale(0.4)', 'scale(1)'],
+          transform: ['scale(1)', 'scale(0.3)', 'scale(1)'],
         },
         {
-          duration: 250,
+          duration: 333,
+          easing: 'ease-in-out',
           fill: 'both',
         }
       );
@@ -33,7 +31,7 @@ export const MouseIndicator = () => {
   return (
     <>
       <div
-        className="animation-rotating pointer-events-none absolute left-1/2 top-1/2 hidden h-8 w-8 rounded-full border-2 border-cpText md:block"
+        className="animation-rotating pointer-events-none absolute left-1/2 top-1/2 z-50 hidden h-8 w-8 rounded-full border-2 border-cpText md:block"
         ref={indicatorReference}
       />
     </>

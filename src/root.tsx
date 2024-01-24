@@ -39,13 +39,7 @@ const Root = () => {
       <head>
         <Meta />
         <Links />
-        <link
-          rel="preload"
-          href="/fonts/BebasNeue/BebasNeue-Regular.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
+        <link rel="preload" href="/fonts/BebasNeue/BebasNeue-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           httpEquiv="Content-Security-Policy"

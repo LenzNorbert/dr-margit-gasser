@@ -8,10 +8,7 @@ export type VisibilityState = {
 };
 
 export const useIsVisible = () => {
-  const checkVisibility = (
-    ref: MutableRefObject<any>,
-    options?: { persistent: boolean } & IntersectionObserverInit
-  ): VisibilityType => {
+  const checkVisibility = (ref: MutableRefObject<any>, options?: { persistent: boolean } & IntersectionObserverInit): VisibilityType => {
     const { detectMobile } = useUtilities();
     const [visibility, setVisibility] = useState<VisibilityType>('invisible');
 
