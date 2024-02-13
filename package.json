@@ -32,7 +32,8 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^13.0.0",
     "remix": "^1.6.5",
-    "remix-i18next": "^5.1.1"
+    "remix-i18next": "^5.1.1",
+    "storyblok-rich-text-react-renderer": "^2.9.1"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.19.1",
