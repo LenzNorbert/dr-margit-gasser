@@ -38,7 +38,7 @@ export const Navbar = ({ menuHeadline, menuItems, flipScrollmode }: NavbarProps)
       <div
         className={`${scrollInView ? 'top-0' : '-top-24'} ${
           openMenuStyle[openMenu ? 'opened' : 'closed']
-        } z-10 bg-cpBeige transition-all xl:border-b-[1px] xl:border-cpDark
+        } z-50 bg-cpBeige transition-all xl:border-b-[1px] xl:border-cpDark
         `}>
         <nav className="relative flex h-full w-full items-center justify-center xl:justify-between">
           <div className="flex h-full w-1/3 flex-row items-center justify-start px-4">

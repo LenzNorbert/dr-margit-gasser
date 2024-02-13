@@ -11,7 +11,7 @@ export const Footer = ({ blok }: any) => {
       <ul className="flex flex-col items-center justify-evenly md:flex-row md:border-white [&>li]:px-2 md:[&>li]:border-r-[1px]">
         <li>{blok.copyright}</li>
         {blok.links.map(({ name, link }: any, i: number) => (
-          <li className={`${i === blok.links.length - 1 && 'border-none'}`}>
+          <li key={name} className={`${i === blok.links.length - 1 && 'border-none'}`}>
             <Link className="underline-offset-2 hover:underline" to={link}>
               {name}
             </Link>
