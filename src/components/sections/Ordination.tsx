@@ -4,7 +4,7 @@ import { render } from 'storyblok-rich-text-react-renderer';
 import { VisibilityState, useIsVisible } from '~/hooks/useIsVisible';
 
 const visibilityState: VisibilityState = {
-  invisible: 'translate-y-2/3 opacity-0 blur-sm',
+  invisible: 'translate-y-1/3 opacity-0 blur-sm',
   visible: 'translate-y-0 opacity-100 blur-none',
 };
 
