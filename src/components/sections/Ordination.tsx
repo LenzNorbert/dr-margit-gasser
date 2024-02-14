@@ -26,7 +26,7 @@ export const Ordination = ({ blok }: any) => {
         {blok?.ordination_content.map(({ title, icon, text, _uid }: { [key: string]: any }) => (
           <div className="flex h-fit flex-col items-center justify-evenly px-12 py-8 [&>*]:my-2" key={_uid}>
             <div className="aspect-square w-16  rounded-2xl bg-cpRed bg-opacity-30 p-3">
-              <img src={icon.filename} className="aspect-square w-full" />
+              <img loading="lazy" src={icon.filename} alt={icon.alt} className="aspect-square w-full" />
             </div>
             <h4 className="text-center font-poppins text-xl font-semibold text-cpText">{title}</h4>
             <p className="w-full whitespace-pre-wrap text-center font-mulish text-lg text-cpText [text-align-last:center] md:text-justify">

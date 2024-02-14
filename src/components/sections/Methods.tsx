@@ -9,14 +9,16 @@ export const Methods = ({ blok }: any) => {
         {...storyblokEditable(blok)}
         key={blok?._uid}
         id={blok?._uid}
-        style={{ backgroundImage: `url(${fileLink})` }}
-        className={`relative flex h-fit min-h-screen w-full flex-col items-center justify-evenly`}>
-        <img src="/assets/wave-3.svg" className="relative z-10 w-full" />
-        <h3>{blok.title}</h3>
-        {blok.method_list.map((methodBlok: any) => (
-          <StoryblokComponent key={methodBlok._uid} blok={methodBlok} />
-        ))}
-        <img src="/assets/wave-4.svg" className="relative -bottom-1 z-10 w-full" />
+        style={{ backgroundImage: `url('${fileLink}/m/filters:brightness(20):quality(20)')` }}
+        className={`relative flex h-fit min-h-screen w-full flex-col items-center justify-between bg-cover`}>
+        <img loading="lazy" src="/assets/wave-2.svg" className="relative -top-1 z-10 w-full" />
+        <h3 className="py-12 text-center font-poppins text-2xl font-bold text-cpText md:text-4xl lg:text-5xl">{blok.title}</h3>
+        <div className="flex w-10/12 flex-col gap-y-10">
+          {blok.method_list.map((methodBlok: any) => (
+            <StoryblokComponent key={methodBlok._uid} blok={methodBlok} />
+          ))}
+        </div>
+        <img loading="lazy" src="/assets/wave-3.svg" className="relative -bottom-1 z-10 w-full" />
       </section>
     </>
   );
