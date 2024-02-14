@@ -4,12 +4,10 @@ import i18next from 'i18next';
 import { hydrateRoot } from 'react-dom/client';
 import { RemixBrowser } from '@remix-run/react';
 import { getInitialNamespaces } from 'remix-i18next';
-import { I18nextProvider, initReactI18next } from 'react-i18next';
 
 import { i18nConfig } from './config/locales/i18n';
 
 i18next
-  .use(initReactI18next)
   .use(LanguageDetector)
   .use(Backend)
   .init<HttpBackendOptions>({
@@ -24,10 +22,5 @@ i18next
     },
   })
   .then(() => {
-    return hydrateRoot(
-      document,
-      <I18nextProvider i18n={i18next}>
-        <RemixBrowser />
-      </I18nextProvider>
-    );
+    return hydrateRoot(document, <RemixBrowser />);
   });
