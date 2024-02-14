@@ -36,7 +36,7 @@ const Template = () => {
     <div className={`relative min-h-full w-full overflow-hidden bg-white ${!allowScroll && 'max-h-screen overflow-y-hidden'}`}>
       <MouseIndicator />
       <Navbar menuHeadline={menuHeadline} menuItems={menuItems} flipScrollmode={() => setAllowScroll(!allowScroll)} />
-      <div className="relative flex items-center justify-center xl:pt-20">
+      <div className="relative flex items-center justify-center">
         <StoryblokComponent blok={story?.content} key={story?.name} />
       </div>
     </div>
