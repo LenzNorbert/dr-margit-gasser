@@ -19,7 +19,7 @@ export const About = ({ blok }: any) => {
     <section key={blok?._uid} className="w-full" ref={ref}>
       <div
         {...storyblokEditable(blok)}
-        id={blok?._uid}
+        id={encodeURIComponent(blok.navbar_link_name)}
         className={`${visibilityState[isVisible]} glass-effect relative -top-40 z-30 mx-auto min-h-screen w-10/12 rounded-2xl transition-all duration-1000`}>
         <div className="flex w-full flex-col items-center justify-center">
           <img

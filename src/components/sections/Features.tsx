@@ -11,7 +11,7 @@ export const Features = ({ blok }: any) => {
       <section
         {...storyblokEditable(blok)}
         key={blok?._uid}
-        id={blok?._uid}
+        id={encodeURIComponent(blok.navbar_link_name)}
         className="relative z-10 flex h-auto w-full flex-col items-center justify-center bg-cpBeige">
         <img loading="lazy" src="/assets/logo.svg" className="absolute bottom-0 left-0 right-0 top-0 m-auto w-1/5 opacity-50" />
         <h3 className="py-12 text-center font-poppins text-2xl font-bold text-cpText md:text-4xl lg:text-5xl">{blok.title}</h3>

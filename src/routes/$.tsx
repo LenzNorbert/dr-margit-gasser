@@ -13,7 +13,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   const locale = supportedLngs.includes(requestLocale) ? requestLocale : await i18next.getLocale(request);
 
   if (requestLocale === null) return redirect(`${await i18next.getLocale(request)}/`);
-  if (!supportedLngs.includes(requestLocale)) return redirect(`/${locale}/error?code=404`);
+  if (!supportedLngs.includes(requestLocale)) return redirect(`/${locale}/error`);
 
   const { data } = await getStoryblokApi().get(`cdn/stories/${params['*']}`, { version: 'published', cv: Date.now() });
 
@@ -54,8 +54,8 @@ const Template = () => {
   const menuHeadline = (story?.content || { title: '' })?.title;
   const menuItems = (story?.content || { body: [] as Array<any> })?.body
     .filter(({ navbar_link_name }) => navbar_link_name)
-    .map(({ _uid, navbar_link_name }) => {
-      return { name: navbar_link_name, id: _uid };
+    .map(({ navbar_link_name }) => {
+      return { name: navbar_link_name, id: encodeURIComponent(navbar_link_name) };
     });
 
   return (

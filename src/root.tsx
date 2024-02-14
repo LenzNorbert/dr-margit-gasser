@@ -40,6 +40,7 @@ const Root = () => {
         <Meta />
         <Links />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="UTF-8" />
         <meta
           httpEquiv="Content-Security-Policy"
           content={`script-src 'nonce-${nonce}' 'unsafe-inline' https: http: 'nonce-${nonce}' 'strict-dynamic'; base-uri 'self'; object-src 'none';`}
@@ -62,6 +63,7 @@ export const ErrorBoundary = () => {
         <Meta />
         <Links />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="UTF-8" />
       </head>
       <body>
         <ErrorHandler />

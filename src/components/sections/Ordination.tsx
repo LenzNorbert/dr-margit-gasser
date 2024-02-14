@@ -17,7 +17,7 @@ export const Ordination = ({ blok }: any) => {
     <section
       {...storyblokEditable(blok)}
       key={blok?._uid}
-      id={blok?._uid}
+      id={encodeURIComponent(blok.navbar_link_name)}
       className="relative flex h-fit min-h-screen w-full flex-col items-center justify-evenly bg-cpBeige py-12">
       <h3 className="pb-8 text-center font-poppins text-2xl font-bold text-cpText md:text-4xl lg:text-5xl">{blok.title}</h3>
       <div
