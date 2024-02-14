@@ -6,6 +6,7 @@ import { Footer } from './Footer';
 import { Header } from './Header';
 import { Methods } from './Methods';
 import { Ordination } from './Ordination';
+import { GenericContent } from './GenericContent';
 
 export const sections: SbReactComponentsMap = {
   about: About,
@@ -14,4 +15,5 @@ export const sections: SbReactComponentsMap = {
   header: Header,
   methods: Methods,
   ordination: Ordination,
+  generic: GenericContent,
 };
