@@ -16,7 +16,7 @@ export const About = ({ blok }: any) => {
   const isVisible = checkVisibility(ref, { persistent: true });
 
   return (
-    <section key={blok?._uid} className="relative h-auto w-full" ref={ref}>
+    <section key={blok?._uid} className="h-auto w-full" ref={ref}>
       <div
         {...storyblokEditable(blok)}
         id={blok?._uid}
