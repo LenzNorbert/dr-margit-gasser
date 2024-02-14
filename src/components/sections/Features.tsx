@@ -23,8 +23,8 @@ export const Features = ({ blok }: any) => {
         <button
           className="flex flex-col items-center justify-center py-8 font-poppins text-xl font-bold text-cpRed"
           onClick={() => setFeaturesShown((length) => (length > 3 ? defaultFeaturesShown : blok.feature_list.length))}>
-          {blok.expand_button_name}
-          <img className="aspect-square h-8" src={blok.expand_button_icon.filename} />
+          {featuresShown > 3 ? blok.collapse_button_name : blok.expand_button_name}
+          <img className={`spect-square h-8 ${featuresShown > 3 && 'rotate-180'}`} src={blok.button_icon.filename} />
         </button>
       </section>
       <img src="/assets/wave-3.svg" className="relative -top-16 z-10 w-full" />
