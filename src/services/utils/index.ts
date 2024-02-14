@@ -11,5 +11,7 @@ export const useUtilities = () => {
     );
   };
 
-  return { detectMobile };
+  const extractString = (str: string) => str.replace(/[^A-Z0-9]+/gi, '_');
+
+  return { detectMobile, extractString };
 };

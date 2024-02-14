@@ -1,6 +1,9 @@
 import { StoryblokComponent, storyblokEditable } from '@storyblok/react';
+import { useUtilities } from '~/services';
 
 export const Methods = ({ blok }: any) => {
+  const { extractString } = useUtilities();
+
   const fileLink = blok?.background_image?.filename;
 
   return (
@@ -8,7 +11,7 @@ export const Methods = ({ blok }: any) => {
       <section
         {...storyblokEditable(blok)}
         key={blok?._uid}
-        id={encodeURIComponent(blok.navbar_link_name)}
+        id={extractString(blok.navbar_link_name)}
         style={{ backgroundImage: `url('${fileLink}/m/filters:brightness(20):quality(20)')` }}
         className={`relative flex h-fit min-h-screen w-full flex-col items-center justify-between bg-cover`}>
         <img loading="lazy" src="/assets/wave-2.svg" className="relative -top-1 z-10 w-full" />

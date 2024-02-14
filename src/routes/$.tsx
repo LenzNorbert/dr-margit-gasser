@@ -6,7 +6,7 @@ import { getStoryblokApi, useStoryblokState, StoryblokComponent } from '@storybl
 import { MouseIndicator } from '~/components/elements/MouseIndicator';
 import { supportedLngs, Locales } from '~/config/locales/i18n';
 import { Navbar } from '~/components/elements/Navbar';
-import { i18next } from '~/services';
+import { i18next, useUtilities } from '~/services';
 
 export const loader: LoaderFunction = async ({ request, params }) => {
   const requestLocale = (params['*']?.split('/')[0] as Locales) || null;
@@ -49,13 +49,14 @@ export const links: LinksFunction = () => {
 const Template = () => {
   const { data } = useLoaderData();
   const story = useStoryblokState(data);
+  const { extractString } = useUtilities();
   const [allowScroll, setAllowScroll] = useState(true);
 
   const menuHeadline = (story?.content || { title: '' })?.title;
   const menuItems = (story?.content || { body: [] as Array<any> })?.body
     .filter(({ navbar_link_name }) => navbar_link_name)
     .map(({ navbar_link_name }) => {
-      return { name: navbar_link_name, id: `#${encodeURIComponent(navbar_link_name)}` };
+      return { name: navbar_link_name, id: `#${extractString(navbar_link_name)}` };
     });
 
   if (menuItems.length === 0) menuItems.push({ name: 'Home', id: '/' });
