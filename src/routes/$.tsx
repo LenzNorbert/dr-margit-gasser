@@ -55,8 +55,10 @@ const Template = () => {
   const menuItems = (story?.content || { body: [] as Array<any> })?.body
     .filter(({ navbar_link_name }) => navbar_link_name)
     .map(({ navbar_link_name }) => {
-      return { name: navbar_link_name, id: encodeURIComponent(navbar_link_name) };
+      return { name: navbar_link_name, id: `#${encodeURIComponent(navbar_link_name)}` };
     });
+
+  if (menuItems.length === 0) menuItems.push({ name: 'Home', id: '/' });
 
   return (
     <div className={`relative min-h-full w-full overflow-hidden bg-white ${!allowScroll && 'max-h-screen overflow-y-hidden'}`}>

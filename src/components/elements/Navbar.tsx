@@ -54,7 +54,7 @@ export const Navbar = ({ menuHeadline, menuItems, flipScrollmode }: NavbarProps)
           <ul className="flex h-3/4 w-10/12 flex-col justify-evenly font-poppins xl:w-2/3 xl:flex-row xl:items-center xl:justify-end">
             {menuItems.map(({ id, name }) => (
               <li key={id} onClick={() => onClick(false, openMenu)}>
-                <Link className="flex flex-row items-baseline justify-start text-3xl xl:text-xl" to={`#${id}`}>
+                <Link className="flex flex-row items-baseline justify-start text-3xl xl:text-xl" to={id}>
                   <span className="pr-1 text-2xl font-semibold text-cpRed  before:content-['#'] xl:px-4 xl:text-3xl xl:font-light xl:before:content-['|']"></span>
                   <span className="text-center text-cpText decoration-cpRed decoration-2 underline-offset-2 hover:underline">{name}</span>
                 </Link>
