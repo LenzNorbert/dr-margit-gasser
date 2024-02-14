@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { NODE_LI, NODE_PARAGRAPH, render } from 'storyblok-rich-text-react-renderer';
 
 import { VisibilityState, useIsVisible } from '~/hooks/useIsVisible';
+import { useUtilities } from '~/services';
 
 const visibilityState: VisibilityState = {
   invisible: 'translate-y-2/3 opacity-0 blur-sm',
@@ -12,6 +13,7 @@ const visibilityState: VisibilityState = {
 export const About = ({ blok }: any) => {
   const ref = useRef(null);
   const { checkVisibility } = useIsVisible();
+  const { extractString } = useUtilities();
 
   const isVisible = checkVisibility(ref, { persistent: true });
 
