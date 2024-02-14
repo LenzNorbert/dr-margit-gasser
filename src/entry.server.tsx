@@ -1,4 +1,3 @@
-import { I18nextProvider, initReactI18next } from 'react-i18next';
 import { renderToPipeableStream } from 'react-dom/server';
 import { EntryContext } from '@remix-run/server-runtime';
 import { RemixServer } from '@remix-run/react';
@@ -21,43 +20,35 @@ const handleRequest = async (request: Request, status: number, headers: Headers,
   const ns = i18next.getRouteNamespaces(context);
   const localizationInstance = createInstance();
 
-  await localizationInstance
-    .use(initReactI18next)
-    .use(Backend)
-    .init({
-      ...i18nConfig,
-      ns,
-      lng: locale,
-      backend: { loadPath: resolve(`./public/locales/{{lng}}/{{ns}}.json`) },
-    });
+  await localizationInstance.use(Backend).init({
+    ...i18nConfig,
+    ns,
+    lng: locale,
+    backend: { loadPath: resolve(`./public/locales/{{lng}}/{{ns}}.json`) },
+  });
 
   return new Promise((resolve, reject) => {
-    const { pipe, abort } = renderToPipeableStream(
-      <I18nextProvider i18n={localizationInstance}>
-        <RemixServer context={context as any} url={request.url} />
-      </I18nextProvider>,
-      {
-        [isbot(headers.get('User-Agent')) ? 'onAllReady' : 'onShellReady']: () => {
-          const body: any = new PassThrough({ encoding: 'utf-8' });
-          headers.set('Content-Type', 'text/html');
-          headers.set('Content-Language', locale);
+    const { pipe, abort } = renderToPipeableStream(<RemixServer context={context as any} url={request.url} />, {
+      [isbot(headers.get('User-Agent')) ? 'onAllReady' : 'onShellReady']: () => {
+        const body: any = new PassThrough({ encoding: 'utf-8' });
+        headers.set('Content-Type', 'text/html');
+        headers.set('Content-Language', locale);
 
-          resolve(
-            new Response(body, {
-              headers,
-              status,
-            })
-          );
+        resolve(
+          new Response(body, {
+            headers,
+            status,
+          })
+        );
 
-          pipe(body);
-        },
-        onShellError: (error: unknown) => reject(error),
-        onError: (error: unknown, errorInfo: ErrorInfo) => {
-          process.stderr.write(String(error));
-          return String(error);
-        },
-      }
-    );
+        pipe(body);
+      },
+      onShellError: (error: unknown) => reject(error),
+      onError: (error: unknown, errorInfo: ErrorInfo) => {
+        process.stderr.write(String(error));
+        return String(error);
+      },
+    });
 
     setTimeout(abort, ABORT_DELAY);
   });

@@ -32,8 +32,8 @@ export const Navbar = ({ menuHeadline, menuItems, flipScrollmode }: NavbarProps)
 
   return (
     <>
-      <button className="fixed right-0 z-[100] h-20 w-20 p-4 xl:hidden" onClick={() => onClick(!openMenu)}>
-        <img src="/assets/menu.svg" alt="Button to open navbar" className="h-full w-full" />
+      <button type="button" className="fixed right-0 z-[100] h-20 w-20 p-4 xl:hidden" onClick={() => onClick(!openMenu)}>
+        <img loading="lazy" src="/assets/menu.svg" alt="Button to open navbar" className="h-full w-full" />
       </button>
       <div
         className={`${scrollInView ? 'top-0' : '-top-24'} ${
@@ -43,6 +43,7 @@ export const Navbar = ({ menuHeadline, menuItems, flipScrollmode }: NavbarProps)
         <nav className="relative flex h-full w-full items-center justify-center xl:justify-between">
           <div className="flex h-full w-1 flex-row items-center justify-start px-4 xl:w-1/3">
             <img
+              loading="lazy"
               src="/assets/logo.svg"
               className="absolute left-0 right-0 -z-10 m-auto opacity-50 xl:relative xl:m-0 xl:h-3/4 xl:pr-4 xl:opacity-100"
             />

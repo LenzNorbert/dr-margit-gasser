@@ -35,7 +35,7 @@ export const useIsVisible = () => {
           if (ref?.current) observer.observe(ref.current);
           return () => (ref?.current ? observer.unobserve(ref.current) : undefined);
         }
-      }, [ref]);
+      }, []);
 
     return visibility;
   };

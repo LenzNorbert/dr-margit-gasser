@@ -10,7 +10,6 @@ export const fallbackLng: Locales = Locales.DE;
 export const i18nConfig: InitOptions = {
   supportedLngs,
   fallbackLng,
-  defaultNS: 'common',
   compatibilityJSON: 'v4',
   react: { useSuspense: false },
 };

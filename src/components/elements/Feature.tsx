@@ -20,14 +20,14 @@ export const Feature = ({ blok }: any) => {
       {...storyblokEditable(blok)}
       key={blok?._uid}
       id="features"
-      className={`glass-effect relative mx-auto flex h-auto w-full flex-col items-center justify-center rounded-2xl p-8 transition-all duration-1000 ${visibilityState[isVisible]}`}>
+      className={`glass-effect relative mx-auto flex h-auto w-full flex-col items-center justify-center rounded-2xl p-8 shadow-cpRed drop-shadow-2xl transition-all duration-1000 ${visibilityState[isVisible]}`}>
       <div className="aspect-square w-16 rounded-2xl bg-cpRed bg-opacity-30 p-3">
-        <img src={blok.icon.filename} className="aspect-square w-full" />
+        <img loading="lazy" src={blok.icon.filename} alt={blok.icon.alt} className="aspect-square w-full" />
       </div>
       <h4 className="py-4 text-center font-poppins text-xl font-semibold text-cpText">{blok.title}</h4>
       <span className="text-center font-mulish">{blok.preview_text}</span>
       {blok.description && (
-        <button className="py-4 font-poppins font-semibold text-cpGreen" onClick={() => setExpanded(!expanded)}>
+        <button type="button" className="py-4 font-poppins font-semibold text-cpGreen" onClick={() => setExpanded(!expanded)}>
           {blok.learn_more}
         </button>
       )}

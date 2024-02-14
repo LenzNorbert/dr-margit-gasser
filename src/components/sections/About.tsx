@@ -1,6 +1,6 @@
 import { storyblokEditable } from '@storyblok/react';
 import { useRef } from 'react';
-import { MARK_STYLED, NODE_LI, NODE_PARAGRAPH, render } from 'storyblok-rich-text-react-renderer';
+import { NODE_LI, NODE_PARAGRAPH, render } from 'storyblok-rich-text-react-renderer';
 
 import { VisibilityState, useIsVisible } from '~/hooks/useIsVisible';
 
@@ -16,13 +16,18 @@ export const About = ({ blok }: any) => {
   const isVisible = checkVisibility(ref, { persistent: true });
 
   return (
-    <section key={blok?._uid} className="relative h-auto w-full" ref={ref}>
+    <section key={blok?._uid} className="w-full" ref={ref}>
       <div
         {...storyblokEditable(blok)}
         id={blok?._uid}
         className={`${visibilityState[isVisible]} glass-effect relative -top-40 z-30 mx-auto min-h-screen w-10/12 rounded-2xl transition-all duration-1000`}>
         <div className="flex w-full flex-col items-center justify-center">
-          <img className="my-4 aspect-square w-64 rounded-3xl" src={blok.image.filename} />
+          <img
+            loading="lazy"
+            alt={blok.image.alt}
+            className="my-4 aspect-square w-64 rounded-3xl"
+            src={`${blok.image.filename}/m/fit-in/256x256/`}
+          />
           <h2 className="py-2 text-center font-poppins text-3xl font-bold md:text-5xl">{blok.title}</h2>
           <h3 className="text-center font-poppins text-2xl opacity-80 md:text-3xl">{blok.subheading}</h3>
         </div>
