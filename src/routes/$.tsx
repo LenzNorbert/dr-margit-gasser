@@ -15,7 +15,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   if (requestLocale === null) return redirect(`${await i18next.getLocale(request)}/`);
   if (!supportedLngs.includes(requestLocale)) return redirect(`/${locale}/error?code=404`);
 
-  const { data } = await getStoryblokApi().get(`cdn/stories/${params['*']}`, { version: 'draft', cv: Date.now() });
+  const { data } = await getStoryblokApi().get(`cdn/stories/${params['*']}`, { version: 'published', cv: Date.now() });
 
   return json({ data: data?.story });
 };
